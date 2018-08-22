@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import store  from './xxx.js';
-
+import { Link } from 'react-router-dom'
 import logo from '../logo.svg';
 import { Drawer, Button } from 'antd';
 import '../App.css';
@@ -40,7 +40,9 @@ class homeHome extends Component {
   render() {
     return (
         <div className="xxx">111
+          <Link to="/menu">
             <div className="App"><img src={logo} className="App-logo" alt="logo" /></div>
+          </Link>
         </div>
     //   <div className="xxx">
     //     <div className="App">

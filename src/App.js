@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import { Drawer, Button } from 'antd';
 import homeIndex from './pages/home'
 import dalibao from './pages/dalibao'
+import menu from './pages/menu'
 import './App.css';
 import { Layout } from 'antd';
 import axios from 'axios'
@@ -31,6 +32,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={homeIndex} />
           <Route exact path='/dalibao' component={dalibao} />
+          <Route exact path='/menu' component={menu} />
         </Switch>
       </Router>
       // <div className="xxx">
