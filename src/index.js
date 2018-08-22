@@ -24,8 +24,8 @@ import reducers from "./reducer/index.js";
 //     }
 // }
 const store = createStore(reducers, applyMiddleware(looger, thunk));
-// store.dispatch({type:'first'})
-// console.log('dispatch',store.getState())
+store.dispatch({type:'dalibao_data'})
+console.log('dispatch',store.getState())
 ReactDOM.render(
     <Provider store={ store }>
         <App/>

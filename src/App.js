@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import logo from './logo.svg';
 import { Drawer, Button } from 'antd';
-import homeIndex from './pages/home'
-import dalibao from './pages/dalibao'
-import menu from './pages/menu'
+import homeIndex from './containers/home'
+import dalibao from './containers/dalibao'
+import menu from './containers/menu'
 import './App.css';
 import { Layout } from 'antd';
 import axios from 'axios'

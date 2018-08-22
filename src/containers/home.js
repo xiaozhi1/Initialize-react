@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import store  from './xxx.js';
+import store  from './red.js';
 import { Link } from 'react-router-dom'
 import logo from '../logo.svg';
 import { Drawer, Button } from 'antd';
-import '../App.css';
+// import '../App.css';
 import { Layout } from 'antd';
 import axios from 'axios'
 

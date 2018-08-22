@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import { Layout } from 'antd';
+import '../style/menu.css'
 
 const { Header, Footer, Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu;
@@ -13,7 +14,7 @@ export default class Dalibao extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            current: 'mail',
+            current: 'alipay',
         }
     }
 
@@ -50,7 +51,11 @@ export default class Dalibao extends Component {
                             </Menu.Item>
                         </Menu> 
                     </Sider>
-                    <Content>Content</Content>
+                    <Content >
+                        <div className="content">
+                        Content
+                        </div>
+                    </Content>
                 </Layout>
                 {/* <Footer>Footer</Footer> */}
             </Layout>
