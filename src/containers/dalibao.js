@@ -35,7 +35,9 @@ class Dalibao extends Component {
         console.log('dalibao',dalibao)
         return (
             
-            <div>dalibao</div>
+            <div>
+                <h1>dalibao-----dalibao</h1>
+            </div>
         )
     }
 }

@@ -1,54 +1,76 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import logo from './logo.svg';
+import { Link } from 'react-router-dom'
+import {Menu, Icon , Layout } from 'antd';
 import { Drawer, Button } from 'antd';
+import { connect } from 'react-redux';
+
+//containers  code
+import welcome from './containers/welcome'
 import homeIndex from './containers/home'
 import dalibao from './containers/dalibao'
 import menu from './containers/menu'
 import './App.css';
-import { Layout } from 'antd';
-import axios from 'axios'
 
 
 const { Header, Footer, Sider, Content } = Layout;
+const SubMenu = Menu.SubMenu;
+const MenuItemGroup = Menu.ItemGroup;
 
 
 class App extends Component {
+  state = { 
+    visible: false ,
+    menuArray:[
+        {keys:'home',text:'home',url:'home',type:'appstore'},
+        {keys:'dalibao',text:'dalibao',url:'dalibao',type:'appstore-o'},
+        {keys:'menu',text:'menu',url:'menu',type:'laptop'}
+    ]
+  };
+  
+  showDrawer = () => {
+    this.setState({
+      visible: true,
+    });
+  };
 
-  // componentDidMount(){
-  //   axios.get('http://47.98.64.219:9104/woMallActivity/activityModelApp/findActivitysByParam?model=3&actType=1&page=1')
-  //   // axios.get('http://10.20.0.6:9104/woMallActivity/activityModelApp/findActivitysByParam?model=3&actType=1&page=1')
-  //   .then((r)=>{
-  //      console.log('rrrrrrr',r)
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
-  // }
+  onClose = () => {
+    this.setState({
+      visible: false,
+    });
+  };
 
   render() {
     return (
       <Router basename="">
-        <Switch>
-          <Route exact path='/' component={homeIndex} />
-          <Route exact path='/dalibao' component={dalibao} />
-          <Route exact path='/menu' component={menu} />
-        </Switch>
+        <Layout>
+              <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" >
+                  {
+                    this.state.menuArray.map((value, index)=> {
+                          return (
+                            <Menu.Item key={value.keys}>
+                              <Link to={value.url}>
+                                  <Icon type={value.type} />
+                                    {value.text}
+                              </Link> 
+                            </Menu.Item>
+                          )
+                    })
+                  }
+              </Menu> 
+            <Layout>
+            <Content>
+              {/* ContentContentContentContent  */}
+                <Switch>
+                  <Route exact path='/' component={welcome} />
+                  <Route exact path='/home' component={homeIndex} />
+                  <Route exact path='/dalibao' component={dalibao} />
+                  <Route exact path='/menu' component={menu} />
+                </Switch>
+            </Content >
+            </Layout>
+        </Layout>
       </Router>
-      // <div className="xxx">
-      //   <div className="App">
-      //     <header className="App-header">
-      //       <img src={logo} className="App-logo" alt="logo" />
-      //       <h1 className="App-title">Welcome to React</h1>
-      //     </header>
-      //     <p className="App-intro">
-      //       To get started, edit 洒洒水所所所所所所所所水水水水<code>src/App.js</code> and save to reload.
-      //     </p>
-      //     <div className="App">
-      //       <Button type="primary">Button</Button>
-      //     </div>
-      //   </div>
-      // </div>
 
     );
   }

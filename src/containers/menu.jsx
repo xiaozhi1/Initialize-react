@@ -27,38 +27,36 @@ export default class Dalibao extends Component {
 
     render() {
         return (
-            <Layout>
-                <Header>Header</Header>
+            <div className="menu">
                 <Layout>
-                    <Sider>
-                        <Menu
-                            onClick={this.handleClick}
-                            selectedKeys={[this.state.current]}
-                            mode="horizontal"
-                        >
-                            <Menu.Item key="mail">
-                            <Link to="/dalibao">
-                            <Icon type="mail" />Navigation One
-                            </Link>
-                            </Menu.Item>
+                        <Sider>
+                            <Menu
+                                onClick={this.handleClick}
+                                selectedKeys={[this.state.current]}
+                                mode="horizontal"
+                                breakpoint="xl"
+                            >
+                                <Menu.Item key="mail">
+                                <Icon type="mail" />mail
+                                </Menu.Item>
 
-                            <Menu.Item key="app" >
-                            <Icon type="appstore" />Navigation Two
-                            </Menu.Item>
+                                <Menu.Item key="app" >
+                                <Icon type="appstore" />appstore
+                                </Menu.Item>
 
-                            <Menu.Item key="alipay">
-                            <a href="https://ant.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
-                            </Menu.Item>
-                        </Menu> 
-                    </Sider>
-                    <Content >
-                        <div className="content">
-                        Content
-                        </div>
-                    </Content>
+                                <Menu.Item key="alipay">
+                                <Icon type="appstore" />appstore
+                                </Menu.Item>
+                            </Menu> 
+                        </Sider>
+                        <Content >
+                            <div className="content">
+                                Content
+                            </div>
+                        </Content>
                 </Layout>
-                {/* <Footer>Footer</Footer> */}
-            </Layout>
+            </div>
+            
             
         )
     }
