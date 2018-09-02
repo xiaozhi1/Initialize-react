@@ -5,7 +5,7 @@ import { Drawer, Button } from 'antd';
 // import '../App.css';
 import {Menu, Icon , Layout } from 'antd';
 import axios from 'axios'
-
+import ButtonFade from '../components/buttonFade/buttonFade';
 const { Header, Footer, Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
@@ -21,9 +21,16 @@ class homeHome extends Component {
 
         <div className="xxx">
           <h1>home-----home</h1>
+          {/* 涟漪按钮   */}
+          <ButtonFade value="按钮" onClick={this.z.bind(this)} />
+          <ButtonFade value="按钮" />
         </div>
 
     );
+  }
+  z(klsjadlksajdlksajdlksjlsjl) {
+    console.log('外面的函数')
+    console.log(klsjadlksajdlksajdlksjlsjl);
   }
 }
 
