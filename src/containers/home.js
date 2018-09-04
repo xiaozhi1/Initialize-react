@@ -16,6 +16,21 @@ console.log('store.getState()',store.getState())
 
 class homeHome extends Component {
 
+  componentDidMount(){
+
+      axios.get('http://musicapi.leanapp.cn/comment/music', {
+          params: {
+              id:186016,
+              limit:1
+          }
+      }).then(
+          (res)=>{
+            console.log('网易云ssds音乐',res.data)
+          }
+      )
+
+  }
+
   render() {
     return (
 
