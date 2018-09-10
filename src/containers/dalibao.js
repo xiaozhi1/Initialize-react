@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import dalibao from "../mock/dalibao"
 import {bindActionCreators} from "redux";
 import * as dalibaoAction from "../action/dalibaoAction";
+import * as paramsSetAction from "../action/paramsSetAction";
 
 // import store from "../pages/xxx"
 // let counter = 0;
@@ -17,22 +18,31 @@ class Dalibao extends Component {
         }
     }
     componentDidMount() {
+        
         this.props.dalibaoAction.dalibao_data()
-        console.log('resData1',this.props.resData)
+
+        let page = 2
+        this.props.dalibaoAction.dalibao_data2(page)
+        
+        let args = {
+            id:186016,
+            limit:1
+        }
+        this.props.dalibaoAction.action_musics(args)
+
+        let number = 2
+        this.props.paramsSetAction.setHomeNav(number)
+        // 设置以后,点击其他页面,输出的是2. 而非初始化的1
+    }
+    componentWillReceiveProps(nextProps){
+        console.log('nextProps',nextProps)
     }
     render() {
-        // const dalibao = this.state
-        
-        // this.props.dalibaoAction.dalibao_data(
-        //         // {
-        //         // 'model':3,
-        //         // 'actType':1,
-        //         // 'page':1
-        //         // }
-        // )
-        console.log('resData2',this.props.resData)
-        console.log('this.props',this.props)
-        console.log('dalibao',dalibao)
+        console.log('dalibao1',this.props.dalibao1)
+        console.log('dalibao2',this.props.resDDDDD)
+        console.log('dalibaoMusic',this.props.music)
+        console.log('this.props.paramsRedu',this.props.paramsRedu)
+
         return (
             
             <div>
@@ -44,12 +54,16 @@ class Dalibao extends Component {
 // export default Dalibao
 export default connect((state) => {
     return {
-        resData: state.dalibaoReducer.resData
+        dalibao1: state.dalibaoReducer.resData,
+        resDDDDD: state.dalibaoReducer.resData2,
+        music: state.dalibaoReducer.resMusic,
+        paramsRedu: state.paramsSetReducer.paramsRedu
     };
 },
 (dispatch) => {
     return {
-        dalibaoAction: bindActionCreators(dalibaoAction, dispatch)
+        dalibaoAction: bindActionCreators(dalibaoAction, dispatch),
+        paramsSetAction: bindActionCreators(paramsSetAction, dispatch)
     };
 }
 )(Dalibao);

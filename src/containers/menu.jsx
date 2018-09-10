@@ -10,12 +10,13 @@ const { Header, Footer, Sider, Content } = Layout;
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
-export default class Dalibao extends Component {
+class Menuss extends Component {
     constructor(props) {
         super(props)
         this.state = {
             current: 'alipay',
         }
+        console.log('dalibao-->点击以后再点击menu,值为2,若直接进menu,值为1------>',this.props.paramsRedu)
     }
 
     handleClick = (e) => {
@@ -61,3 +62,10 @@ export default class Dalibao extends Component {
         )
     }
 }
+export default connect((state) => {
+    return { paramsRedu: state.paramsSetReducer.paramsRedu };
+},
+(dispatch) => {
+    return { };
+}
+)(Menuss)
