@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux";
+import { Link } from 'react-router-dom'
 import dalibao from "../mock/dalibao"
 import {bindActionCreators} from "redux";
 import * as dalibaoAction from "../action/dalibaoAction";
@@ -47,6 +48,7 @@ class Dalibao extends Component {
             
             <div>
                 <h1>dalibao-----dalibao</h1>
+                <Link to="/dalibao/dalibaoSecond">SecondDalibao</Link>
             </div>
         )
     }

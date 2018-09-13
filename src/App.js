@@ -6,10 +6,13 @@ import { Drawer, Button } from 'antd';
 import { connect } from 'react-redux';
 
 //containers  code
-import welcome from './containers/welcome'
-import homeIndex from './containers/home'
-import dalibao from './containers/dalibao'
-import menu from './containers/menu'
+import Welcome from './containers/welcome'
+import HomeIndex from './containers/home'
+import Dalibao from './containers/dalibao'
+import DalibaoSecond from './containers/dalibaoSecond'
+import Menus from './containers/menu'
+import MenuSecond from './containers/menuSecond'
+import MenuThird from './containers/menuThird'
 import './App.css';
 
 
@@ -22,9 +25,9 @@ class App extends Component {
   state = { 
     visible: false ,
     menuArray:[
-        {keys:'home',text:'home',url:'home',type:'appstore'},
-        {keys:'dalibao',text:'dalibao',url:'dalibao',type:'appstore-o'},
-        {keys:'menu',text:'menu',url:'menu',type:'laptop'}
+        {keys:'home',text:'home',url:'/home',type:'appstore'},
+        {keys:'dalibao',text:'dalibao',url:'/dalibao',type:'appstore-o'},
+        {keys:'menu',text:'menu',url:'/menu/first',type:'laptop'}
     ]
   };
   
@@ -42,7 +45,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router basename="">
+      <Router basename="/">
         <Layout>
               <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" >
                   {
@@ -60,12 +63,14 @@ class App extends Component {
               </Menu> 
             <Layout>
             <Content>
-              {/* ContentContentContentContent  */}
                 <Switch>
-                  <Route exact path='/' component={welcome} />
-                  <Route exact path='/home' component={homeIndex} />
-                  <Route exact path='/dalibao' component={dalibao} />
-                  <Route exact path='/menu' component={menu} />
+                  <Route exact path='/' component={Welcome} />
+                  <Route exact path='/home' component={HomeIndex} />
+                  <Route exact path='/dalibao' component={Dalibao} />
+                  <Route exact path='/dalibao/dalibaoSecond' component={DalibaoSecond} />
+                  <Route exact path='/menu/first' component={Menus} />
+                  <Route exact path='/menu/menuSecond' component={MenuSecond} />
+                  <Route exact path='/menu/menuThird' component={MenuThird} />
                 </Switch>
             </Content >
             </Layout>

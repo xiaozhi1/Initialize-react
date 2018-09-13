@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
-import { Menu, Icon } from 'antd';
-import { Link } from 'react-router-dom'
-import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
 import { Layout } from 'antd';
 import '../style/menu.css'
+import MenuLink from '../components/menuLink/menuLink'
 
-const { Header, Footer, Sider, Content } = Layout;
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
+const { Content } = Layout;
 
 class Menuss extends Component {
     constructor(props) {
@@ -30,29 +27,10 @@ class Menuss extends Component {
         return (
             <div className="menu">
                 <Layout>
-                        <Sider>
-                            <Menu
-                                onClick={this.handleClick}
-                                selectedKeys={[this.state.current]}
-                                mode="horizontal"
-                                breakpoint="xl"
-                            >
-                                <Menu.Item key="mail">
-                                <Icon type="mail" />mail
-                                </Menu.Item>
-
-                                <Menu.Item key="app" >
-                                <Icon type="appstore" />appstore
-                                </Menu.Item>
-
-                                <Menu.Item key="alipay">
-                                <Icon type="appstore" />appstore
-                                </Menu.Item>
-                            </Menu> 
-                        </Sider>
+                        <MenuLink></MenuLink>
                         <Content >
                             <div className="content">
-                                Content
+                                MenuFirst-----MenuFirst
                             </div>
                         </Content>
                 </Layout>
